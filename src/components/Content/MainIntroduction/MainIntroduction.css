@@ -1,0 +1,28 @@
+.about-section {
+  padding: 6rem 0;
+  background-color: transparent; /* Ensure no background color */
+}
+
+.about-container {
+  max-width: 500px;
+  margin: 0 auto; /* Center the container */
+  padding: 1rem;
+  text-align: justify; /* Justify text alignment */
+  text-align: center; /* Center align text for better visual harmony */
+}
+
+.profile-pic {
+  width: 200px; /* Adjust the size of the image */
+  height: 200px;
+  object-fit: cover; /* Ensure the image covers the entire area */
+  border-radius: 50%; /* Make the image circular */
+  margin-bottom: 1.5rem;
+  border: 3px solid #64ffda; /* Optional: Add a border to match the color scheme */
+}
+
+.about-text {
+  color: #a0aec0; /* Use appropriate text color */
+  line-height: 1.8; /* Increase line height for better readability */
+  text-align: justify; /* Justify text alignment */
+}
+

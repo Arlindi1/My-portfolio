@@ -1,0 +1,73 @@
+.experience-section {
+  padding: 4rem 0;
+  background-color: transparent; /* Ensure no background color */
+}
+
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.experience-item {
+  display: block; /* Make the anchor block-level to cover the whole item */
+  background-color: transparent; /* Ensure it blends with the background */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  width: 70%;
+  max-width: 900px;
+  text-decoration: none; /* Remove underline from the link */
+  color: inherit; /* Inherit color */
+  display: flex; /* Flex layout for aligning period and details */
+}
+
+.experience-content {
+  display: flex;
+  align-items: center;
+}
+
+.period {
+  width: 150px; /* Adjust width as needed */
+  flex-shrink: 0; /* Prevent period from shrinking */
+  text-align: left; /* Align text to the left */
+}
+
+.details {
+  flex-grow: 1; /* Allow details to grow and take remaining space */
+  margin-left: 20px; /* Space between period and details */
+}
+
+.experience-item:hover {
+  background-color: #1d2e51; /* Dark background on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.experience-item h3 {
+  color: #64ffda; /* Ensure title color is consistent */
+}
+
+.experience-item h3:hover {
+  color: #52d4b8;
+  text-decoration: none; /* Add underline on hover */
+}
+
+.experience-item p {
+  color: #a0aec0; /* Use appropriate text color */
+  text-align: justify;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: #2d3748; /* Dark tag background */
+  color: #cbd5e0; /* Light text color for tags */
+  border-radius: 9999px;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}

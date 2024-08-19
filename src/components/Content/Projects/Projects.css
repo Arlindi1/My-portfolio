@@ -1,0 +1,61 @@
+.projects-section {
+  padding: 4rem 0;
+  background-color: transparent; /* Ensure no background color */
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-item {
+  display: block; /* Make the anchor block-level to cover the whole item */
+  background-color: transparent; /* Ensure it blends with the background */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  width: 70%;
+  max-width: 1150px;
+  text-decoration: none; /* Remove underline from the link */
+  color: inherit; /* Inherit color */
+  display: flex; /* Flex layout for aligning image and details */
+}
+
+.project-content {
+  display: flex;
+  align-items: center;
+}
+
+.project-image {
+  width: 150px; /* Adjust the width as needed */
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.details {
+  flex-grow: 1; /* Allow details to grow and take remaining space */
+  margin-left: 20px; /* Space between image and details */
+}
+
+.project-item:hover {
+  background-color: #1d2e51; /* Dark background on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.project-item h3 {
+  color: #64ffda; /* Ensure title color is consistent */
+}
+
+.project-item h3:hover {
+  color: #52d4b8;
+  text-decoration: none; /* Add underline on hover */
+}
+
+.project-item p {
+  color: #a0aec0; /* Use appropriate text color */
+  text-align: justify;
+}
