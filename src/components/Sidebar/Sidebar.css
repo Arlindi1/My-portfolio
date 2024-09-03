@@ -4,7 +4,6 @@
   height: 100vh;
   background-color: #0a192f;
   padding: 2rem;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;

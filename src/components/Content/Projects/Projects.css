@@ -29,7 +29,7 @@
 }
 
 .project-image {
-  width: 150px; /* Adjust the width as needed */
+  width: 100px; /* Adjust the width as needed */
   height: auto;
   object-fit: cover;
   border-radius: 0.5rem;

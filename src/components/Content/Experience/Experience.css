@@ -71,3 +71,16 @@
   margin-right: 0.5rem;
   margin-top: 0.5rem;
 }
+
+.experience-period{
+  width: 200px;
+  text-align: center;
+}
+
+.company-logo {
+  width: 100%;
+}
+
+.period.text-gray-400{
+  text-align: center;
+}
