@@ -14,7 +14,7 @@ const experiences = [
   {
     title: 'Student Participant - Web Development',
     company: 'Makerminds',
-    imageUrl: 'https://scontent.fprn1-1.fna.fbcdn.net/v/t39.30808-6/356426914_760252502769148_5933416695238499335_n.png?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=mN3GTe_Fk08Q7kNvgFIskJd&_nc_ht=scontent.fprn1-1.fna&_nc_gid=AkZxoqOVRwhuiqwT3kSeerM&oh=00_AYAwXudkspJAieKPIJ28XWcrbP6dYYC9r2N8ugknE3OFjw&oe=66E62AE0',
+    imageUrl: 'https://media.licdn.com/dms/image/v2/C4D0BAQFGEo_OJBqQgg/company-logo_200_200/company-logo_200_200/0/1630532393024/makerminds_llc_logo?e=1734566400&v=beta&t=YcF6jQrirV3BDolCLiFZAM-dcbiXn2VrJkUgH-9N7ws',
     period: 'Nov 23 - Jan 24 ',
     description: 'Intensive training course covering the basics of web development using HTML, CSS, and JavaScript. This course transforms participants from beginners to capable developers within 3 months, advancing their knowledge and preparing them to meet the demands of the modern digital era as web developers.',
     tags: ['HTML', 'CSS', 'JavaScript'],
