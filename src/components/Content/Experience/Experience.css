@@ -39,6 +39,11 @@
   margin-left: 20px; /* Space between period and details */
 }
 
+.experience-image-text{
+  display: flex;
+  flex-direction: column;
+}
+
 .experience-item:hover {
   background-color: #1d2e51; /* Dark background on hover */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
@@ -72,8 +77,11 @@
   margin-top: 0.5rem;
 }
 
-.experience-period{
+.experience-image{
+  display: flex;
+  align-items: center;
   width: 200px;
+  height: 200px;
   text-align: center;
 }
 

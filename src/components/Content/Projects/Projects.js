@@ -3,6 +3,12 @@ import "./Projects.css";
 
 const projects = [
   {
+    title: 'Sigal Website',
+    description: 'Rebuilt the SIGAL UNIQA website from scratch, focusing on enhanced functionality, responsiveness, and user experience. Using React and MySQL for data handling, I implemented key features such as a custom KASKO insurance calculator, a dynamic dropdown menu for services, and an authentication system.',
+    imageUrl: "https://i.postimg.cc/Zn1K3Dxf/sigal-website.png",
+    link: ''
+  },
+  {
     title: 'Netflix Clone',
     description: 'A responsive web application built using React, showcasing popular movies and TV shows in a user-friendly interface inspired by Netflix. It features dynamic content fetched from The Movie Database (TMDB), interactive functionalities such as favorites, editing, and deletion of movie details directly through modal dialogs, and a responsive design for an optimal viewing experience across various devices.',
     imageUrl: "https://i.postimg.cc/59FY42jC/netflix.png",
@@ -32,7 +38,7 @@ const Projects = () => {
                 <p className="mt-2 text-gray-300">{project.description}</p>
               </div>
             </div>
-          </a>
+          </a> 
         ))}
       </div>
     </section>

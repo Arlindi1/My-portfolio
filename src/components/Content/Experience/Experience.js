@@ -3,6 +3,15 @@ import "./Experience.css";
 
 const experiences = [
   {
+    title: 'Frontend Intern - Sigal Uniqa',
+    company: 'Sigal UNIQA',
+    imageUrl: 'https://th.bing.com/th/id/R.a0c347076ded495fdbd55bc443e900d5?rik=Y9zaVDA1%2bFBibg&riu=http%3a%2f%2fsigal.com.al%2fwp-content%2fuploads%2f2019%2f05%2flogo-SIGAL.png&ehk=a5V3moSFNzK%2bswsbJBwDdcctCz9BQ1hqPlgryxe0EaA%3d&risl=&pid=ImgRaw&r=0',
+    period: 'Jul 24 - Oct 24',
+    description: 'As a Frontend Web Developer at Sigal Uniqa, I work on creating intuitive and user-friendly web interfaces for our insurance platforms. My role involves collaborating with cross-functional teams to develop responsive websites and web applications using technologies like HTML5, CSS3, JavaScript, and modern frameworks such as React. I focus on optimizing web performance, ensuring accessibility compliance, and enhancing the overall user experience to meet both client and business needs.',
+    tags: ['JavaScript', 'React', 'Wordpress'],
+    link: 'https://sigal-ks.com/' // replace with actual link if available
+  },
+  {
     title: 'Student Participant - Advanced JavaScript and React',
     company: 'Beetroot Academy',
     imageUrl: 'https://d92mrp7hetgfk.cloudfront.net/images/sites/misc/beetroot_resized/original.png?1664306157',
@@ -29,10 +38,12 @@ const Experience = () => {
         {experiences.map((experience, index) => (
           <a key={index} href={experience.link} className="experience-item" target="_blank" rel="noopener noreferrer">
             <div className="experience-content">
-            <div className="experience-period">
+            <div className="experience-image-text">
+            <div className="experience-image">
             <img src={experience.imageUrl} alt={experience.title} className="company-logo" />
+            </div>
             <div className="period text-gray-400">{experience.period}</div>
-              </div>
+            </div>
               <div className="details">
                 <h3 className="text-xl font-bold text-teal-400">{experience.title}</h3>
                 <p className="mt-2 text-gray-300">{experience.description}</p>

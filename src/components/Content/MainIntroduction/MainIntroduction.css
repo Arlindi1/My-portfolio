@@ -17,7 +17,7 @@
   object-fit: cover; /* Ensure the image covers the entire area */
   border-radius: 50%; /* Make the image circular */
   margin-bottom: 1.5rem;
-  border: 3px solid #64ffda; /* Optional: Add a border to match the color scheme */
+  border: none; /* Optional: Add a border to match the color scheme */
 }
 
 .about-text {
