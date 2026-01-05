@@ -9,68 +9,116 @@ const Contact = () => {
     message: ''
   });
 
+  const [status, setStatus] = useState({ type: 'idle', message: '' });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((current) => ({
+      ...current,
       [name]: value
-    });
+    }));
+
+    if (status.type !== 'idle') setStatus({ type: 'idle', message: '' });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_007', 'template_007', e.target, '9Xnd_SJv22oliwWHD')
-      .then((result) => {
-          console.log('Email successfully sent!', result.text);
-      }, (error) => {
-          console.log('Failed to send email:', error.text);
-      });
 
-    setFormData({
-      from_name: '',
-      reply_to: '',
-      message: ''
-    });
+    setStatus({ type: 'sending', message: '' });
+
+    emailjs
+      .sendForm('service_007', 'template_007', e.target, '9Xnd_SJv22oliwWHD')
+      .then(
+        () => {
+          setStatus({
+            type: 'success',
+            message: "Thanks! I'll get back to you as soon as possible."
+          });
+
+          setFormData({
+            from_name: '',
+            reply_to: '',
+            message: ''
+          });
+        },
+        () => {
+          setStatus({
+            type: 'error',
+            message:
+              'Something went wrong while sending. Please try again in a moment.'
+          });
+        }
+      );
+
   };
 
   return (
-    <section id="contact" className="bg-dark-800 text-white p-8">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold">Contact</h2>
-        <form className="mt-6" onSubmit={handleSubmit}>
-          <label className="block mb-4">
-            <span className="block text-sm">Name</span>
-            <input
-              type="text"
-              name="from_name"
-              className="w-full mt-1 p-2 rounded bg-dark-700 text-white"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label className="block mb-4">
-            <span className="block text-sm">Email</span>
-            <input
-              type="email"
-              name="reply_to"
-              className="w-full mt-1 p-2 rounded bg-dark-700 text-white"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label className="block mb-4">
-            <span className="block text-sm">Message</span>
-            <textarea
-              name="message"
-              className="w-full mt-1 p-2 rounded bg-dark-700 text-white"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            ></textarea>
-          </label>
-          <button type="submit" className="mt-4 p-2 bg-blue-600 rounded">Send</button>
+    <section id="contact" className="section contact-section reveal">
+      <header className="section-header">
+        <p className="section-kicker">Let’s talk</p>
+        <h2 className="section-title">Contact</h2>
+        <p className="section-subtitle">
+          Have an opportunity or want to connect? Send me a message.
+        </p>
+      </header>
+
+      <div className="card contact-card">
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <div className="contact-grid">
+            <label className="field">
+              <span className="field-label">Name</span>
+              <input
+                type="text"
+                name="from_name"
+                className="field-input"
+                value={formData.from_name}
+                onChange={handleChange}
+                autoComplete="name"
+                required
+              />
+            </label>
+
+            <label className="field">
+              <span className="field-label">Email</span>
+              <input
+                type="email"
+                name="reply_to"
+                className="field-input"
+                value={formData.reply_to}
+                onChange={handleChange}
+                autoComplete="email"
+                required
+              />
+            </label>
+
+            <label className="field field--full">
+              <span className="field-label">Message</span>
+              <textarea
+                name="message"
+                className="field-input field-textarea"
+                value={formData.message}
+                onChange={handleChange}
+                rows={6}
+                required
+              />
+            </label>
+          </div>
+
+          <div className="contact-actions">
+            <button
+              type="submit"
+              className="btn"
+              disabled={status.type === 'sending'}
+            >
+              {status.type === 'sending' ? 'Sending…' : 'Send message'}
+            </button>
+
+            {status.type !== 'idle' ? (
+              <p className={`contact-status is-${status.type}`} role="status">
+                {status.message}
+              </p>
+            ) : null}
+          </div>
         </form>
       </div>
     </section>

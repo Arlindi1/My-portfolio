@@ -1,61 +1,100 @@
-.projects-section {
-  padding: 4rem 0;
-  background-color: transparent; /* Ensure no background color */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
-.projects-container {
+.project-card {
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  cursor: pointer;
 }
 
-.project-item {
-  display: block; /* Make the anchor block-level to cover the whole item */
-  background-color: transparent; /* Ensure it blends with the background */
-  padding: 1rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-  transition: background-color 0.3s, box-shadow 0.3s;
-  width: 70%;
-  max-width: 1150px;
-  text-decoration: none; /* Remove underline from the link */
-  color: inherit; /* Inherit color */
-  display: flex; /* Flex layout for aligning image and details */
+.project-card.is-disabled {
+  opacity: 0.9;
+  cursor: default;
 }
 
-.project-content {
-  display: flex;
-  align-items: center;
+.project-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border);
+}
+
+.project-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 11, 26, 0.06),
+    rgba(5, 11, 26, 0.55)
+  );
+  pointer-events: none;
 }
 
 .project-image {
-  width: 100px; /* Adjust the width as needed */
-  height: auto;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 0.5rem;
-  flex-shrink: 0; /* Prevent image from shrinking */
+  transform: scale(1.02);
+  transition: transform 220ms ease;
+  filter: saturate(1.06) contrast(1.02);
 }
 
-.details {
-  flex-grow: 1; /* Allow details to grow and take remaining space */
-  margin-left: 20px; /* Space between image and details */
+.project-card.card-hover:hover .project-image {
+  transform: scale(1.06);
 }
 
-.project-item:hover {
-  background-color: #1d2e51; /* Dark background on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+.project-body {
+  padding: 16px 18px 18px;
+  text-align: left;
 }
 
-.project-item h3 {
-  color: #64ffda; /* Ensure title color is consistent */
+.project-topRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
 }
 
-.project-item h3:hover {
-  color: #52d4b8;
-  text-decoration: none; /* Add underline on hover */
+.project-title {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
 }
 
-.project-item p {
-  color: #a0aec0; /* Use appropriate text color */
-  text-align: justify;
+.project-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(100, 255, 218, 0.35);
+  background: rgba(100, 255, 218, 0.08);
+  color: var(--accent);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.project-cta.is-muted {
+  border-color: var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--muted-2);
+}
+
+.project-description {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 820px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,18 +1,60 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Header.css";
 
+const links = [
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' }
+];
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') setIsOpen(false);
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [isOpen]);
+
   return (
-    <header className="fixed w-full bg-dark-900 p-4">
-      <nav className="container mx-auto flex justify-between">
-        <div className="text-white text-lg font-bold">Arlind Arifaj</div>
-        <ul className="flex space-x-4">
-          <li><a href="#about" className="text-gray-300 hover:text-white">About</a></li>
-          <li><a href="#experience" className="text-gray-300 hover:text-white">Experience</a></li>
-          <li><a href="#projects" className="text-gray-300 hover:text-white">Projects</a></li>
-          <li><a href="#contact" className="text-gray-300 hover:text-white">Contact</a></li>
-        </ul>
+    <header className="site-header">
+      <div className="site-header__inner">
+        <a
+          className="site-header__brand"
+          href="#about"
+          onClick={() => setIsOpen(false)}
+        >
+          Arlind Arifaj
+        </a>
+
+        <button
+          type="button"
+          className="site-header__toggle"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen((open) => !open)}
+        >
+          <span className="site-header__toggleIcon" aria-hidden="true" />
+        </button>
+      </div>
+
+      <nav
+        className={['site-header__nav', isOpen ? 'is-open' : '']
+          .filter(Boolean)
+          .join(' ')}
+        aria-label="Primary"
+      >
+        {links.map((link) => (
+          <a key={link.href} href={link.href} onClick={() => setIsOpen(false)}>
+            {link.label}
+          </a>
+        ))}
       </nav>
     </header>
   );

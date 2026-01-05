@@ -27,19 +27,71 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="projects-section">
-      <div className="projects-container">
-        {projects.map((project, index) => (
-          <a key={index} href={project.link} className="project-item" target="_blank" rel="noopener noreferrer">
-            <div className="project-content">
-              <img src={project.imageUrl} alt={project.title} className="project-image" />
-              <div className="details">
-                <h3 className="text-xl font-bold text-teal-400">{project.title}</h3>
-                <p className="mt-2 text-gray-300">{project.description}</p>
+    <section id="projects" className="section projects-section reveal">
+      <header className="section-header">
+        <p className="section-kicker">Selected work</p>
+        <h2 className="section-title">Projects</h2>
+        <p className="section-subtitle">
+          A few projects that highlight my frontend and full-stack experience.
+        </p>
+      </header>
+
+      <div className="projects-grid">
+        {projects.map((project, index) => {
+          const Wrapper = project.link ? 'a' : 'article';
+          const wrapperProps = project.link
+            ? {
+                href: project.link,
+                target: '_blank',
+                rel: 'noopener noreferrer',
+                'aria-label': `Open ${project.title} (new tab)`
+              }
+            : { 'aria-label': project.title };
+
+          return (
+            <Wrapper
+              key={project.title}
+              {...wrapperProps}
+              className={[
+                'card',
+                project.link ? 'card-hover' : '',
+                'project-card',
+                'reveal-item',
+                project.link ? '' : 'is-disabled'
+              ]
+                .filter(Boolean)
+                .join(' ')}
+              style={{ '--reveal-delay': `${index * 90}ms` }}
+            >
+              <div className="project-media">
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  className="project-image"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-            </div>
-          </a> 
-        ))}
+
+              <div className="project-body">
+                <div className="project-topRow">
+                  <h3 className="project-title">{project.title}</h3>
+                  <span
+                    className={[
+                      'project-cta',
+                      project.link ? '' : 'is-muted'
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
+                  >
+                    {project.link ? 'View ↗' : 'Private'}
+                  </span>
+                </div>
+                <p className="project-description">{project.description}</p>
+              </div>
+            </Wrapper>
+          );
+        })}
       </div>
     </section>
   );

@@ -4,15 +4,19 @@ import MainIntroduction from './MainIntroduction/MainIntroduction';
 import Experience from './Experience/Experience';
 import Projects from './Projects/Projects';
 import Contact from './Contact/Contact';
+import Footer from '../Footer/Footer';
 
 const Content = () => {
   return (
-    <div className="content ml-1/4 p-8 bg-dark-800">
-      <MainIntroduction />
-      <Experience />
-      <Projects />
-      <Contact />
-    </div>
+    <main className="content">
+      <div className="content-inner">
+        <MainIntroduction />
+        <Experience />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
+    </main>
   );
 };
 

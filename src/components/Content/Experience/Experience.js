@@ -33,25 +33,49 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="experience-section">
-      <div className="experience-container">
+    <section id="experience" className="section experience-section reveal">
+      <header className="section-header">
+        <p className="section-kicker">Career</p>
+        <h2 className="section-title">Experience</h2>
+        <p className="section-subtitle">
+          Roles and programs that shaped my frontend skills.
+        </p>
+      </header>
+
+      <div className="experience-list">
         {experiences.map((experience, index) => (
-          <a key={index} href={experience.link} className="experience-item" target="_blank" rel="noopener noreferrer">
-            <div className="experience-content">
-            <div className="experience-image-text">
-            <div className="experience-image">
-            <img src={experience.imageUrl} alt={experience.title} className="company-logo" />
+          <a
+            key={experience.title}
+            href={experience.link}
+            className="card card-hover experience-item reveal-item"
+            style={{ '--reveal-delay': `${index * 90}ms` }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="experience-logoWrap" aria-hidden="true">
+              <img
+                src={experience.imageUrl}
+                alt=""
+                className="experience-logo"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
-            <div className="period text-gray-400">{experience.period}</div>
-            </div>
-              <div className="details">
-                <h3 className="text-xl font-bold text-teal-400">{experience.title}</h3>
-                <p className="mt-2 text-gray-300">{experience.description}</p>
-                <div className="tags mt-2">
-                  {experience.tags.map((tag, idx) => (
-                    <span key={idx} className="tag bg-gray-800 text-gray-300 rounded-full px-2 py-1 mr-2">{tag}</span>
-                  ))}
-                </div>
+
+            <div className="experience-main">
+              <div className="experience-topRow">
+                <h3 className="experience-title">{experience.title}</h3>
+                <div className="experience-period">{experience.period}</div>
+              </div>
+              <div className="experience-company">{experience.company}</div>
+              <p className="experience-description">{experience.description}</p>
+
+              <div className="experience-tags" aria-label="Technologies">
+                {experience.tags.map((tag) => (
+                  <span key={tag} className="pill">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           </a>

@@ -28,37 +28,57 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <div className="sidebar fixed left-0 top-0 h-full w-1/4 p-8 bg-dark-900">
+    <aside className="sidebar" aria-label="Sidebar">
       <div className="sidebar-content">
-        <h1 className="text-4xl font-bold text-white">Arlind Arifaj</h1>
-        <h2 className="text-2xl text-gray-400 mt-2">Frontend Developer</h2>
-        <p className="text-gray-400 mt-4">I enjoy creating visually appealing and accessible web interfaces.</p>
-        <nav className="mt-8">
-          <ul className="space-y-4">
-            <li className={activeSection === 'about' ? 'active' : ''}>
-              <a href="#about" className="text-gray-300 hover:text-white">About</a>
-            </li>
-            <li className={activeSection === 'experience' ? 'active' : ''}>
-              <a href="#experience" className="text-gray-300 hover:text-white">Experience</a>
-            </li>
-            <li className={activeSection === 'projects' ? 'active' : ''}>
-              <a href="#projects" className="text-gray-300 hover:text-white">Projects</a>
-            </li>
-            <li className={activeSection === 'contact' ? 'active' : ''}>
-              <a href="#contact" className="text-gray-300 hover:text-white">Contact</a>
-            </li>
+        <div className="sidebar-intro">
+          <h1 className="sidebar-name">Arlind Arifaj</h1>
+          <p className="sidebar-role">Frontend Developer</p>
+          <p className="sidebar-summary">
+            I enjoy creating visually appealing and accessible web interfaces.
+          </p>
+        </div>
+
+        <nav className="sidebar-nav" aria-label="Primary">
+          <ul className="sidebar-navList">
+            {[
+              { id: 'about', label: 'About' },
+              { id: 'experience', label: 'Experience' },
+              { id: 'projects', label: 'Projects' },
+              { id: 'contact', label: 'Contact' }
+            ].map((item) => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  className={activeSection === item.id ? 'active' : ''}
+                  aria-current={activeSection === item.id ? 'location' : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
-        <div className="social-links mt-8 flex space-x-4 justify-center">
-          <a href="https://github.com/Arlindi1" className="text-gray-400 hover:text-white">
+
+        <div className="social-links" aria-label="Social links">
+          <a
+            href="https://github.com/Arlindi1"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
             <FontAwesomeIcon icon={faGithub} size="2x" />
           </a>
-          <a href="https://www.linkedin.com/in/arlind-arifaj/" className="text-gray-400 hover:text-white">
+          <a
+            href="https://www.linkedin.com/in/arlind-arifaj/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
             <FontAwesomeIcon icon={faLinkedin} size="2x" />
           </a>
         </div>
       </div>
-    </div>
+    </aside>
   );
 };
 
